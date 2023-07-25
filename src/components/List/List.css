@@ -1,0 +1,17 @@
+ul {
+  display: grid;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+li {
+  list-style: none;
+  color: white;
+  background-color: gray;
+  border-radius: 1rem;
+  padding: 1rem;
+  justify-content: flex-start;
+  box-shadow: 2px 2px 5px black;
+}
