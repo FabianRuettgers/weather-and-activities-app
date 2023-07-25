@@ -1,22 +1,41 @@
-form {
-  display: grid;
+.activity-form {
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
-label {
+.activity-form__label {
   font-size: larger;
   display: flex;
+  align-items: center;
   gap: 2rem;
 }
 
-button {
+.activity-form__button {
+  margin-top: 1rem;
   box-shadow: 2px 2px 5px black;
+  font-weight: bold;
+  font-size: medium;
+  text-transform: uppercase;
   border-radius: 1rem;
   border: none;
-  padding: 0.25rem;
-  width: 8rem;
+  padding: 1rem 6rem;
   background-color: orange;
+}
+
+.activity-form__input-text {
+  border-radius: 1rem;
+  padding: 0.6rem;
+}
+
+.activity-form__input-checkbox {
+  scale: 300%;
+}
+
+button:active {
+  scale: 90%;
+  transition: all 0.3s ease-out;
 }

@@ -1,21 +1,40 @@
-section {
+.activity-section {
   display: grid;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
-ul {
+.activity-section__headline {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.activity-section__list {
   display: grid;
   justify-content: center;
   align-items: flex-start;
   gap: 2rem;
+  padding: 0;
+  margin: 0;
 }
 
-li {
+.activity-section__list__list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   list-style: none;
   color: white;
-  background-color: gray;
-  border-radius: 1rem;
+  font-size: medium;
+  background-color: rgb(50, 50, 50);
+  border-radius: 0.25rem;
   padding: 1rem;
-  justify-content: flex-start;
   box-shadow: 2px 2px 5px black;
+  justify-self: center;
+}
+
+.activity-section__list__button {
+  font-size: medium;
+  color: white;
+  background-color: transparent;
+  border: none;
 }

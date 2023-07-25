@@ -1,18 +1,22 @@
 import "./List.css";
 export default function List({ activities, isGoodWeather, onDeleteActivity }) {
   return (
-    <section>
-      {}
-      <h2>
+    <section className="activity-section">
+      <h2 className="activity-section__headline">
         {isGoodWeather
-          ? "The weather is awesome! Go outside and:"
-          : "Bad weather outside! Here's what you can do now:"}
+          ? `The weather is awesome!\nGo outside and:`
+          : `Bad weather outside!\nHere's what you can do now:`}
       </h2>
-      <ul>
+      <ul className="activity-section__list">
         {activities.map((activity) => (
-          <li>
+          <li key={activity.id} className="activity-section__list__list-item">
             {activity.name}
-            <button onClick={() => onDeleteActivity?.(activity.id)}>❌</button>
+            <button
+              className="activity-section__list__button"
+              onClick={() => onDeleteActivity?.(activity.id)}
+            >
+              ✖️
+            </button>
           </li>
         ))}
       </ul>

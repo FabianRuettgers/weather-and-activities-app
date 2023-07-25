@@ -10,11 +10,21 @@ function App() {
   const [activities, setActivities] = useLocalStorageState("activity", {
     defaultValue: [],
   });
+  const [newActivities, setNewActivities] = useLocalStorageState(
+    "filteredActivity",
+    {
+      defaultValue: [],
+    }
+  );
 
   useEffect(() => {
-    const interval = setInterval(loadWeather, 5000);
+    const interval = setInterval(loadWeather, 2000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    filterActivities(activities);
+  }, [activities, weather]);
 
   async function loadWeather() {
     try {
@@ -39,26 +49,24 @@ function App() {
     setActivities(updatedActivities);
   }
 
-  function filterActivites(activities) {
-    setActivities(
+  function filterActivities(activities) {
+    setNewActivities(
       activities.filter(
         (activity) => activity.isForGoodWeather === weather.isGoodWeather
       )
     );
   }
-  filterActivites(activities);
 
   return (
-    <>
-      <h1>Weather and activities App</h1>
+    <div className={weather.isGoodWeather ? `weather--good` : `weather--bad`}>
       <Weather weather={weather} />
       <List
-        activities={activities}
+        activities={newActivities}
         isGoodWeather={weather.isGoodWeather}
         onDeleteActivity={handleDeleteActivity}
       />
       <Form onAddActivity={handleAddActivity} />
-    </>
+    </div>
   );
 }
 
