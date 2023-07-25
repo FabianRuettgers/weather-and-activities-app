@@ -26,7 +26,7 @@ export default function Form({ onAddActivity }) {
             id="activity"
           />
         </label>
-        <label className="activity-form__label" id="weather">
+        <label className="activity-form__label__checkbox" id="weather">
           Good-weather activity:
           <input
             className="activity-form__input-checkbox"
