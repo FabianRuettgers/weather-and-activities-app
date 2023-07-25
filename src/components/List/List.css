@@ -1,6 +1,10 @@
+section {
+  display: grid;
+  justify-content: center;
+}
+
 ul {
   display: grid;
-  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 2rem;
