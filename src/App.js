@@ -12,19 +12,21 @@ function App() {
   });
 
   useEffect(() => {
-    async function loadWeather() {
-      try {
-        const response = await fetch(
-          "https://example-apis.vercel.app/api/weather"
-        );
-        const data = await response.json();
-        setWeather(data);
-      } catch (error) {
-        console.log(error);
-      }
+    const interval = setInterval(loadWeather, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  async function loadWeather() {
+    try {
+      const response = await fetch(
+        "https://example-apis.vercel.app/api/weather"
+      );
+      const data = await response.json();
+      setWeather(data);
+    } catch (error) {
+      console.log(error);
     }
-    loadWeather();
-  }, [activities]);
+  }
 
   function handleAddActivity(activity) {
     setActivities([...activities, activity]);
